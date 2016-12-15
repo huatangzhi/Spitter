@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.dao.SpittleRepository">
+
+    <select id="findRecentSpittles" >
+        SELECT id, message, create_time, latitude, longtitude
+        FROM Spittle
+        ORDER BY create_time DESC
+        limit  20
+    </select>
+
+    <select id="findSpittles" resultType="Spittle">
+        SELECT *
+        FROM Spittle
+        WHERE id &lt; #{max}
+        ORDER BY create_time DESC
+        limit  #{count}
+    </select>
+
+</mapper>
