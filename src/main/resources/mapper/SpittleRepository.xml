@@ -17,4 +17,19 @@
         limit  #{count}
     </select>
 
+    <select id="findOne" resultType="Spittle">
+        SELECT *
+        FROM Spittle
+        WHERE id = #{id}
+        ORDER BY create_time DESC
+    </select>
+
+    <insert id="save" parameterType="com.hp.entity.Spittle">
+        INSERT INTO Spittle
+        (message,
+         create_time,
+         latitude,
+         longitude
+        ) VALUES (#{message}, #{createtime}, #{latitude}, #{longitude})
+    </insert>
 </mapper>

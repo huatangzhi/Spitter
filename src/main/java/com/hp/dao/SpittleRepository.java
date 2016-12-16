@@ -14,7 +14,7 @@ public interface SpittleRepository {
 
     List<Spittle> findSpittles(@Param("max") long max, @Param("count") int count);
 
-    Spittle findOne(long id);
+    Spittle findOne(@Param("id") long id);
 
     void save(Spittle spittle);
 

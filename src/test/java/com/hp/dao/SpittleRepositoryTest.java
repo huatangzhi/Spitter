@@ -28,4 +28,29 @@ public class SpittleRepositoryTest {
 
     }
 
+    @Test
+    public void  testfindSpittles(){
+
+        List<Spittle> spittleList = spittleRepository.findSpittles(100000, 10);
+
+        for(Spittle i:spittleList){
+            System.out.print(i);
+        }
+    }
+
+    @Test
+    public void testFindOne(){
+
+        Spittle spittle = spittleRepository.findOne(13);
+
+        System.out.println(spittle);
+    }
+
+    @Test
+    public void testSave() {
+        Spittle spittle = spittleRepository.findOne(12);
+
+        spittleRepository.save(spittle);
+    }
+
 }

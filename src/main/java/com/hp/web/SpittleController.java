@@ -1,5 +1,6 @@
 package com.hp.web;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +29,18 @@ public class SpittleController {
             @RequestParam(value = "max", defaultValue = MAX_LONG_AS_STRING) long max,
             @RequestParam(value = "count", defaultValue = "20") int count) {
         return spittleRepository.findSpittles(max, count);
+    }
+
+    @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
+    public String spittle(@PathVariable("spittleId") long spittleId, Model model){
+        model.addAttribute(spittleRepository.findOne(spittleId));
+        return "Spittle";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String saveSpittle(SpittleForm spittleForm, Model model) throws Exception {
+        spittleRepository.save(new Spittle(null, spittleForm.getMessage(), new Timestamp(System.currentTimeMillis()), spittleForm.getLatitude(), spittleForm.getLatitude()));
+        return "redirect/spittles";
     }
 
 }
