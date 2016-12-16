@@ -34,13 +34,13 @@ public class SpittleController {
     @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
     public String spittle(@PathVariable("spittleId") long spittleId, Model model){
         model.addAttribute(spittleRepository.findOne(spittleId));
-        return "Spittle";
+        return "spittle";
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public String saveSpittle(SpittleForm spittleForm, Model model) throws Exception {
         spittleRepository.save(new Spittle(null, spittleForm.getMessage(), new Timestamp(System.currentTimeMillis()), spittleForm.getLatitude(), spittleForm.getLatitude()));
-        return "redirect/spittles";
+        return "redirect:/spittles";
     }
 
 }
