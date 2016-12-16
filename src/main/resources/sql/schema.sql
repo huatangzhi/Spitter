@@ -1,16 +1,19 @@
-create table Spittle (
-	id VARCHAR(20),
-	message varchar(140) not null,
-	created_at timestamp not null,
-	latitude double,
-	longitude double
+CREATE TABLE Spittle
+(
+    id BIGINT(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    message VARCHAR(140) NOT NULL,
+    create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    latitude DOUBLE,
+    longitude DOUBLE
 );
 
-create table Spitter (
-	id VARCHAR(20),
-	username varchar(20) unique not null,
-	password varchar(20) not null,
-	first_name varchar(30) not null,
-	last_name varchar(30) not null,
-	email varchar(30) not null
+CREATE TABLE Spitter
+(
+    id BIGINT(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    username VARCHAR(20) NOT NULL,
+    password VARCHAR(20) NOT NULL,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    email VARCHAR(30) NOT NULL
 );
+CREATE UNIQUE INDEX username ON Spitter (username);
