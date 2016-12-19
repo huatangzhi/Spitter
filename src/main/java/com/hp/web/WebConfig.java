@@ -20,14 +20,31 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.hp.web")
+
+
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".jsp");
-        return resolver;
+    public ViewResolver viewResolver (SpringTemplateEngine templateEngine){
+        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+        viewResolver.setTemplateEngine(templateEngine);
+        return viewResolver;
+    }
+
+    @Bean
+    public SpringTemplateEngine templateEngine(TemplateResolver templateResolver) {
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.setTemplateResolver(templateResolver);
+        return templateEngine;
+    }
+
+    @Bean
+    public TemplateResolver templateResolver(){
+        TemplateResolver templateResolver = new ServletContextTemplateResolver();
+        templateResolver.setPrefix("/WEB-INF/views/");
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode("HTML5");
+        return templateResolver;
     }
 
 
