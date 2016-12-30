@@ -11,5 +11,11 @@
       <user-name>root</user-name>
       <resolve-scope>Spittr:</resolve-scope>
     </data-source>
+    <data-source name="Oracle - @218.195.56.142" uuid="61e1395b-6bc6-49bd-b6a3-13610bc52752">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>lcpt_usr</user-name>
+    </data-source>
   </component>
 </project>

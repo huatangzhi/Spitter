@@ -30,6 +30,8 @@
     <!--指明 web 所在包，并扫描其中的注解-->
     <context:component-scan base-package="com.hp.web"/>
 
+    <!--指明 exception 所在包， 并扫描其中的注释-->
+    <context:component-scan base-package="com.hp.exception"/>
 
 
 

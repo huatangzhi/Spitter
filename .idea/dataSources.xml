@@ -15,5 +15,12 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="Oracle - @218.195.56.142" uuid="61e1395b-6bc6-49bd-b6a3-13610bc52752">
+      <driver-ref>oracle</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@//218.195.56.142:1521/urpdb</jdbc-url>
+    </data-source>
   </component>
 </project>
